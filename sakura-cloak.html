@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .button {
+            border: none;
+            padding: 5px 180px;
+            text-align: center;
+            display: inline-block;
+            font-size: 30px;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: normal;
+            line-height: 30px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background-color: white;
+            color: black;
+            border: 3px solid black;
+        }
+
+        .button:hover {
+            background-color: #1dbbd6;
+            color: white;
+            border-radius: 12px;
+        }
+
+        .bold {
+            margin: 0;
+        }
+
+        .title-button {
+            padding: 5px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: normal;
+            line-height: 30px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background-color: white;
+            color: black;
+            border: 3px solid black;
+            margin-right: 10px;
+        }
+
+        .title-button:hover {
+            background-color: #1dbbd6;
+            color: white;
+            border-radius: 12px;
+        }
+
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <button class="button" onclick="openGame('about:blank', 'https://sakura-v2.web.app/images/sakura.png')">
+            <p class="bold">Open in Fullscreen [Recommended]</p>
+        </button><br>
+    </center>
+    <div id="button-container">
+        <button class="title-button" onclick="openGame('Clever | Portal', 'https://assets.clever.com/launchpad/2927b8160/favicon.ico?1')">Clever</button>
+        <button class="title-button" onclick="openGame('Google', 'https://www.google.com/favicon.ico')">Google</button>
+        <button class="title-button" onclick="openGame('Google Docs', 'https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico')">Google Docs</button>
+        <button class="title-button" onclick="openGame('Home | Schoology', 'https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico')">Schoology</button>
+    </div>
+    <script>
+       function openGame(title, faviconUrl = 'https://assets.clever.com/launchpad/2927b8160/favicon.ico?1') {
+            let openedWindow = window.open();
+            if (!openedWindow) {
+                alert("Please allow popups for this website to open the game.");
+                return;
+            }
+
+            const url = "https://sakura-v2.web.app";
+            const iframe = openedWindow.document.createElement('iframe');
+
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+
+            openedWindow.document.body.appendChild(iframe);
+            iframe.src = url; 
+
+            openedWindow.document.body.style.margin = "0";
+            openedWindow.document.body.style.padding = "0";
+            openedWindow.document.body.style.overflow = "hidden";
+
+
+            const link = openedWindow.document.createElement('link');
+            link.rel = 'icon';
+            link.href = faviconUrl;
+            openedWindow.document.head.appendChild(link);
+
+            openedWindow.document.title = title;
+
+            const style = `
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                .button {
+                    border: none;
+                    padding: 5px 180px;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 30px;
+                    transition-duration: 0.5s;
+                    cursor: pointer;
+                    font-family: "Poppins", serif;
+                    font-weight: 800;
+                    font-style: normal;
+                    line-height: 30px;
+                    margin-bottom: 10px;
+                    border-radius: 12px;
+                    background-color: white;
+                    color: black;
+                    border: 3px solid black;
+                }
+
+                .button:hover {
+                    background-color: #1dbbd6;
+                    color: white;
+                    border-radius: 12px;
+                }
+                .bold {
+                    margin: 0;
+                }
+
+                .title-button {
+                    padding: 5px 20px;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    transition-duration: 0.5s;
+                    cursor: pointer;
+                    font-family: "Poppins", serif;
+                    font-weight: 800;
+                    font-style: normal;
+                    line-height: 30px;
+                    margin-bottom: 10px;
+                    border-radius: 12px;
+                    background-color: white;
+                    color: black;
+                    border: 3px solid black;
+                    margin-right: 10px;
+                }
+
+                .title-button:hover {
+                    background-color: #1dbbd6;
+                    color: white;
+                    border-radius: 12px;
+                }
+
+                #button-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 10px;
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                }
+            `;
+            openedWindow.document.head.appendChild(style);
+        }
+    </script>
+</body>
+</html>
